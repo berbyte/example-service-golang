@@ -1,24 +1,23 @@
-apiVersion: component.berbyte.sh/v1beta1
-component:
-  example-service-golang:
-    type: web
-    port: 8080
-    cpuCores: 0.1
-    ramMegabytes: 256
-    autoscaling:
-      minPods: 1
-      maxPods: 3
-      memoryThresholdPercent: 70
-      cpuThresholdPercent: 60
-    domains:
-      - name: test1.example.com
-    healthCheck:
-      httpPath: /healthz
+apiVersion: service.berbyte.sh/v1beta1
+example-service-golang:
+  type: web
+  port: 8080
+  cpuCores: 0.1
+  ramMegabytes: 256
+  autoscaling:
+    minPods: 1
+    maxPods: 3
+    memoryThresholdPercent: 70
+    cpuThresholdPercent: 60
+  domains:
+    - name: test1.example.com
+  healthCheck:
+    httpPath: /healthz
 
-    build:
-      method: docker
-      context: ./
-      dockerfile: ./Dockerfile
+  build:
+    method: docker
+    context: ./
+    dockerfile: ./Dockerfile
 
-    test:
-      cmd: go test -v
+  test:
+    cmd: go test -v
