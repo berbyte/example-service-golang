@@ -1,0 +1,31 @@
+apiVersion: stack.berbyte.sh/v1beta1
+kind: app
+
+specs:
+  example-service-golang:
+    component: example-service-golang
+
+    stack: dev-euw1
+    cluster: test_cluster
+    namespace: example-service-golang
+    replicas: 2
+
+    env:
+      - name: ENVIRONMENT
+        value: dev
+
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 200m
+        memory: 256Mi
+
+    autoscaler:
+      minReplicas: 2
+      maxReplicas: 10
+      targetCPUUtilizationPercentage: 80
+
+    readinessProbe:
+      httpGet: /healthz

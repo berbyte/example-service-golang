@@ -1,0 +1,14 @@
+apiVersion: component.berbyte.sh/v1beta1
+kind: web
+example-service-golang:
+  port: 8080
+  healthCheck:
+    httpPath: /healthz
+
+  build:
+    method: docker
+    context: ./
+    dockerfile: ./Dockerfile
+
+  test:
+    cmd: go test -v
