@@ -1,4 +1,4 @@
-apiVersion: stack.berbyte.sh/v1beta1
+apiVersion: stack.ber.sh/v1beta1
 kind: app
 
 specs:

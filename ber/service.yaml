@@ -1,4 +1,4 @@
-apiVersion: component.berbyte.sh/v1beta1
+apiVersion: component.ber.sh/v1beta1
 kind: web
 example-service-golang:
   port: 8080
